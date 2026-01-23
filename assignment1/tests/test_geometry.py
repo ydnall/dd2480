@@ -1,4 +1,4 @@
-from launch_interceptor_program.lic.geometry import triangle_area, distance
+from launch_interceptor_program.lic.geometry import triangle_area, distance, circumradius
 
 
 def test_triangle_area_unit_triangle():
@@ -34,5 +34,27 @@ def test_distance_diagonal():
 def test_distance_same_point():
     """Same point should have distance 0"""
     result = distance((2, 3), (2, 3))
+    assert result == 0.0
+
+
+def test_circumradius_right_triangle():
+    """Right triangle with legs 3,4 has circumradius 2.5 (hypotenuse/2)"""
+    result = circumradius((0, 0), (3, 0), (0, 4))
+    assert result == 2.5
+
+def test_circumradius_equilateral():
+    """Equilateral triangle with side 2: R = a / sqrt(3)"""
+    from math import sqrt
+    result = circumradius((0, 0), (2, 0), (1, sqrt(3)))
+    assert abs(result - 2 / sqrt(3)) < 1e-9
+
+def test_circumradius_collinear():
+    """Collinear points: radius = half longest distance"""
+    result = circumradius((0, 0), (2, 0), (4, 0))
+    assert result == 2.0  # longest dist = 4, radius = 2
+    
+def test_circumradius_same_point():
+    """All same point: radius = 0"""
+    result = circumradius((1, 1), (1, 1), (1, 1))
     assert result == 0.0
 

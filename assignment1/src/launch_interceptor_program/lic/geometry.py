@@ -36,3 +36,21 @@ def distance(p1: Point, p2: Point) -> float:
     distance = sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2))
     
     return distance
+
+def circumradius(p1: Point, p2: Point, p3: Point) -> float:
+    """
+    Radius of the smallest circle that can contain three points.
+
+    For non-collinear points: circumradius of the triangle.
+    For collinear points: half the longest distance.
+    """
+    a = distance(p1, p2)
+    b = distance(p2, p3)
+    c = distance(p1, p3)
+
+    area = triangle_area(p1, p2, p3)
+
+    if area == 0:
+        return max(a, b, c) / 2
+    
+    return (a * b * c) / (4 * area)
