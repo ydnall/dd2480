@@ -4,6 +4,7 @@ Geometric helper functions for LIC evaluations.
 Provides common calculations including areas, distances, etc.
 """
 
+from math import sqrt, pow
 from ..model import Point
 
 def triangle_area(p1: Point, p2: Point, p3: Point) -> float:
@@ -23,3 +24,15 @@ def triangle_area(p1: Point, p2: Point, p3: Point) -> float:
     area = 0.5 * abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2))
 
     return area
+
+def distance(p1: Point, p2: Point) -> float:
+    """Euclidean distance between two points."""
+
+    # unpack coordinates from points
+    x1, y1 = p1
+    x2, y2 = p2
+
+    # apply euclidean distance formula
+    distance = sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2))
+    
+    return distance
