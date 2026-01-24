@@ -43,14 +43,20 @@ def circumradius(p1: Point, p2: Point, p3: Point) -> float:
 
     For non-collinear points: circumradius of the triangle.
     For collinear points: half the longest distance.
+    For obtuse and right triangles: half the longest distance.
     """
     a = distance(p1, p2)
     b = distance(p2, p3)
     c = distance(p1, p3)
+    a, b, c = sorted([a, b, c])
 
     area = triangle_area(p1, p2, p3)
+    eps = 1e-12
 
-    if area == 0:
-        return max(a, b, c) / 2
+    if area <= eps:
+        return c / 2.0
+
+    if pow(c, 2) >= pow(a, 2) + pow(b, 2):
+        return c / 2.0
     
-    return (a * b * c) / (4 * area)
+    return (a * b * c) / (4.0 * area)

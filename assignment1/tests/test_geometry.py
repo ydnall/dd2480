@@ -58,3 +58,7 @@ def test_circumradius_same_point():
     result = circumradius((1, 1), (1, 1), (1, 1))
     assert result == 0.0
 
+def test_circumradius_obtuse_triangle():
+    """Obtuse triangle: smallest enclosing circle uses longest side as diameter"""
+    result = circumradius((0, 0), (4, 0), (1, 1))
+    assert result == 2.0
