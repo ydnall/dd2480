@@ -17,6 +17,7 @@ class Connector(IntEnum):
 @dataclass(frozen=True)
 class Parameters:
     """Parameter bundle used by LIC evaluations."""
+
     LENGTH1: float
     RADIUS1: float
     EPSILON: float
@@ -37,12 +38,15 @@ class Parameters:
     RADIUS2: float
     AREA2: float
 
+
 Point = tuple[float, float]
 Points = list[Point]
+
 
 @dataclass(frozen=True)
 class DecisionInput:
     """Grouped inputs for a DECIDE() evaluation."""
+
     POINTS: Points
     PARAMETERS: Parameters
     LCM: list[list[Connector]]
@@ -52,6 +56,7 @@ class DecisionInput:
 @dataclass(frozen=True)
 class DecisionResult:
     """DECIDE() output and intermediate vectors."""
+
     LAUNCH: bool
     CMV: list[bool]
     PUM: list[list[bool]]
