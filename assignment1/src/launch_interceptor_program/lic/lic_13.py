@@ -1,6 +1,7 @@
 from ..model import Parameters, Points
 from .geometry import circumradius
 
+
 def lic_13(points: Points, parameters: Parameters) -> bool:
     """
     Here we check if there exist two triplets separated by A_PTS and B_PTS intervening points
@@ -8,12 +9,12 @@ def lic_13(points: Points, parameters: Parameters) -> bool:
 
     Both conditions must be met. Returns False if NUMPOINTS < 5.
     """
-    n = len(points)
-      
+    NUMPOINTS = len(points)
+
     # edge case
-    if n < 5:
+    if NUMPOINTS < 5:
         return False
-    
+
     a = parameters.A_PTS
     b = parameters.B_PTS
 
@@ -21,7 +22,7 @@ def lic_13(points: Points, parameters: Parameters) -> bool:
     found_cannot = False
     found_can = False
 
-    for i in range(n - a - b - 2):
+    for i in range(NUMPOINTS - a - b - 2):
         p1 = points[i]
         p2 = points[i + a + 1]
         p3 = points[i + a + b + 2]
