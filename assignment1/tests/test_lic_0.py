@@ -1,14 +1,29 @@
 from launch_interceptor_program.lic.lic_0 import lic_0
 from launch_interceptor_program.model import Parameters
 
+
 # Helper to create Parameters with only relevant fields set
 def make_params(length1=1.0):
     return Parameters(
-        LENGTH1=length1, RADIUS1=0, EPSILON=0, AREA1=0,
-        Q_PTS=2, QUADS=1, DIST=0, N_PTS=3, K_PTS=1,
-        A_PTS=1, B_PTS=1, C_PTS=1, D_PTS=1,
-        E_PTS=1, F_PTS=1, G_PTS=1,
-        LENGTH2=0, RADIUS2=0, AREA2=0
+        LENGTH1=length1,
+        RADIUS1=0,
+        EPSILON=0,
+        AREA1=0,
+        Q_PTS=2,
+        QUADS=1,
+        DIST=0,
+        N_PTS=3,
+        K_PTS=1,
+        A_PTS=1,
+        B_PTS=1,
+        C_PTS=1,
+        D_PTS=1,
+        E_PTS=1,
+        F_PTS=1,
+        G_PTS=1,
+        LENGTH2=0,
+        RADIUS2=0,
+        AREA2=0,
     )
 
 
