@@ -29,14 +29,14 @@ def make_params(radius1=1.0):
 
 def test_lic_1_radius_greater_than_radius1():
     """Three points require a circle with radius > RADIUS1"""
-    points = [(0, 0), (2, 0), (0, 2)]  # circumradius = sqrt(2) ≈ 1.414
+    points = [(0, 0), (2, 0), (0, 2)]  # min_enclosing_circle_radius = sqrt(2) ≈ 1.414
     params = make_params(radius1=1.0)
     assert lic_1(points, params) == True
 
 
 def test_lic_1_radius_equal_to_radius1():
     """Radius equal to RADIUS1 should NOT satisfy (> strictly)"""
-    points = [(0, 0), (2, 0), (0, 2)]  # circumradius ≈ 1.414
+    points = [(0, 0), (2, 0), (0, 2)]  # min_enclosing_circle_radius ≈ 1.414
     params = make_params(radius1=(2**0.5))
     assert lic_1(points, params) == False
 
@@ -49,15 +49,15 @@ def test_lic_1_all_triplets_within_radius():
 
 
 def test_lic_1_collinear_points_within_radius():
-    """Collinear points with circumradius 1.0 are within RADIUS1=100.0"""
-    points = [(0, 0), (1, 0), (2, 0)]  # circumradius = 1.0
+    """Collinear points with min_enclosing_circle_radius 1.0 are within RADIUS1=100.0"""
+    points = [(0, 0), (1, 0), (2, 0)]  # min_enclosing_circle_radius = 1.0
     params = make_params(radius1=100.0)
     assert lic_1(points, params) == False
 
 
 def test_lic_1_collinear_points_exceeds_radius():
-    """Collinear points with circumradius 5.0 exceed RADIUS1=1.0"""
-    points = [(0, 0), (5, 0), (10, 0)]  # circumradius = 5.0
+    """Collinear points with min_enclosing_circle_radius 5.0 exceed RADIUS1=1.0"""
+    points = [(0, 0), (5, 0), (10, 0)]  # min_enclosing_circle_radius = 5.0
     params = make_params(radius1=1.0)
     assert lic_1(points, params) == True
 

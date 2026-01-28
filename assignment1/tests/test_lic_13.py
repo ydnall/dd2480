@@ -27,7 +27,7 @@ def make_params(a_pts=1, b_pts=1, radius1=1.0, radius2=10.0):
 
 
 def test_lic_13_both_conditions_met():
-    """Triplet with circumradius between RADIUS1 and RADIUS2"""
+    """Triplet with min_enclosing_circle_radius between RADIUS1 and RADIUS2"""
     points = [(0, 0), (0, 0), (3, 0), (0, 0), (0, 4)]  # right triangle 3-4-5, R=2.5
     params = make_params(a_pts=1, b_pts=1, radius1=2.0, radius2=3.0)
     assert lic_13(points, params) == True

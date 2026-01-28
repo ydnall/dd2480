@@ -1,5 +1,5 @@
 from ..model import Parameters, Points
-from .geometry import circumradius
+from .geometry import min_enclosing_circle_radius
 
 
 def lic_8(points: Points, parameters: Parameters):
@@ -20,7 +20,7 @@ def lic_8(points: Points, parameters: Parameters):
         first_point = points[start_index]
         second_point = points[start_index + A_PTS + 1]
         third_point = points[start_index + A_PTS + B_PTS + 2]
-        radius = circumradius(first_point, second_point, third_point)
+        radius = min_enclosing_circle_radius(first_point, second_point, third_point)
 
         if radius > RADIUS1:
             return True

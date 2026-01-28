@@ -1,5 +1,5 @@
 from ..model import Parameters, Points
-from .geometry import circumradius
+from .geometry import min_enclosing_circle_radius
 
 
 def lic_1(points: Points, parameters: Parameters) -> bool:
@@ -11,7 +11,7 @@ def lic_1(points: Points, parameters: Parameters) -> bool:
         raise ValueError("RADIUS1 must be larger than or equal to 0")
 
     for p1, p2, p3 in zip(points, points[1:], points[2:]):
-        if circumradius(p1, p2, p3) > parameters.RADIUS1:
+        if min_enclosing_circle_radius(p1, p2, p3) > parameters.RADIUS1:
             return True
 
     return False

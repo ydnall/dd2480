@@ -1,5 +1,5 @@
 from ..model import Parameters, Points
-from .geometry import circumradius
+from .geometry import min_enclosing_circle_radius
 
 
 def lic_13(points: Points, parameters: Parameters) -> bool:
@@ -32,7 +32,7 @@ def lic_13(points: Points, parameters: Parameters) -> bool:
         p2 = points[i + A_PTS + 1]
         p3 = points[i + A_PTS + B_PTS + 2]
 
-        r = circumradius(p1, p2, p3)
+        r = min_enclosing_circle_radius(p1, p2, p3)
 
         if r > RADIUS1:
             found_cannot = True
