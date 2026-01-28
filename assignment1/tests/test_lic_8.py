@@ -26,12 +26,12 @@ def make_test_params(test_A_PTS, test_B_PTS, test_RADIUS1):
     )
 
 
-def test_lic_8_circumradius_bigger_than_radius1():
+def test_lic_8_min_enclosing_circle_radius_bigger_than_radius1():
     """
-    Contract: LIC 8 returns True when the circumradius of three points is bigger than RADIUS1.
+    Contract: LIC 8 returns True when the min_enclosing_circle_radius of three points is bigger than RADIUS1.
 
     Test case: Six points where the first and third is separated by one point, and the third
-    and sixth is separated by two points. The circumradius of the first, third and sixth point
+    and sixth is separated by two points. The min_enclosing_circle_radius of the first, third and sixth point
     is about 4, and RADIUS1 = 2.
     """
     parameters = make_test_params(1, 2, 2)
@@ -40,12 +40,12 @@ def test_lic_8_circumradius_bigger_than_radius1():
     assert result == True
 
 
-def test_lic_8_circumradius_smaller_than_radius1():
+def test_lic_8_min_enclosing_circle_radius_smaller_than_radius1():
     """
-    Contract: LIC 8 returns False when the circumradius of three points is smaller than RADIUS1.
+    Contract: LIC 8 returns False when the min_enclosing_circle_radius of three points is smaller than RADIUS1.
 
     Test case: Six points where the first and third is separated by one point, and the third
-    and sixth is separated by two points. The circumradius of the first, third and sixth point
+    and sixth is separated by two points. The min_enclosing_circle_radius of the first, third and sixth point
     is about 4, and RADIUS1 = 5.
     """
     parameters = make_test_params(1, 2, 5)

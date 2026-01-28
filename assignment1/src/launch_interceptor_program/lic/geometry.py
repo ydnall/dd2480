@@ -100,13 +100,13 @@ def angle(p1: Point, vertex: Point, p3: Point) -> float:
     return acos(cos_theta)
 
 
-def circumradius(p1: Point, p2: Point, p3: Point) -> float:
+def min_enclosing_circle_radius(p1: Point, p2: Point, p3: Point) -> float:
     """
     Radius of the smallest circle that can contain three points.
 
-    For non-collinear points: circumradius of the triangle.
-    For collinear points: infinite (cannot form a circumscribed circle).
-    For obtuse and right triangles: half the longest distance.
+    For acute triangles: circumradius of the triangle.
+    For collinear points: half the longest side.
+    For obtuse and right triangles: half the longest side.
     """
     a = distance(p1, p2)
     b = distance(p2, p3)

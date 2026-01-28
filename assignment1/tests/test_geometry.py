@@ -2,8 +2,8 @@ import math
 
 from launch_interceptor_program.lic.geometry import (
     angle,
-    circumradius,
     distance,
+    min_enclosing_circle_radius,
     point_line_distance,
     quadrant,
     triangle_area,
@@ -155,28 +155,28 @@ def test_angle_vertex_coincides_first_point():
     assert result == 0.0
 
 
-def test_circumradius_equilateral_triangle():
-    """Equilateral triangle with side 2 should have circumradius 2/sqrt(3)"""
-    result = circumradius((0, 0), (2, 0), (1, math.sqrt(3)))
+def test_min_enclosing_circle_radius_equilateral_triangle():
+    """Equilateral triangle with side 2 should have min_enclosing_circle_radius 2/sqrt(3)"""
+    result = min_enclosing_circle_radius((0, 0), (2, 0), (1, math.sqrt(3)))
     expected = 2 / math.sqrt(3)
-    assert math.isclose(result, expected, rel_tol=1e-9)
+    assert math.isclose(result, expected, rel_tol=1e-12)
 
 
-def test_circumradius_right_triangle():
-    """Right triangle with legs 3,4 should have circumradius 2.5 (hypotenuse/2)"""
-    result = circumradius((0, 0), (3, 0), (0, 4))
-    assert math.isclose(result, 2.5, abs_tol=1e-9)
+def test_min_enclosing_circle_radius_right_triangle():
+    """Right triangle with legs 3,4 should have min_enclosing_circle_radius 2.5 (hypotenuse/2)"""
+    result = min_enclosing_circle_radius((0, 0), (3, 0), (0, 4))
+    assert math.isclose(result, 2.5, abs_tol=1e-12)
 
 
-def test_circumradius_collinear_points():
+def test_min_enclosing_circle_radius_collinear_points():
     """Collinear points should return half the longest distance"""
-    result = circumradius((0, 0), (1, 0), (2, 0))
-    # Longest distance is 2, so circumradius is 1
-    assert math.isclose(result, 1.0, abs_tol=1e-9)
+    result = min_enclosing_circle_radius((0, 0), (1, 0), (2, 0))
+    # Longest distance is 2, so min_enclosing_circle_radius is 1
+    assert math.isclose(result, 1.0, abs_tol=1e-12)
 
 
-def test_circumradius_obtuse_triangle():
+def test_min_enclosing_circle_radius_obtuse_triangle():
     """Obtuse triangle should return half the longest side"""
-    result = circumradius((0, 0), (1, 0), (0.5, 0.1))
+    result = min_enclosing_circle_radius((0, 0), (1, 0), (0.5, 0.1))
     longest_side = distance((0, 0), (1, 0))
-    assert math.isclose(result, longest_side / 2, abs_tol=1e-9)
+    assert math.isclose(result, longest_side / 2, abs_tol=1e-12)
