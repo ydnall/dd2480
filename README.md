@@ -47,15 +47,15 @@ GitHub Actions runs tests and linting on pushes and pull requests to `main` usin
 
 ## Statement of contributions
 
-- Sumeya Yasir Isse: Made the solutions and ran tests for LIC 3, 4, 5; implemented FUV.
+- Sumeya Yasir Isse (sumeyayasir): Made the solutions and ran tests for LIC 3, 4, 5; implemented FUV.
 
-- Yiqin Lin: Made the solutions and ran tests for LIC 9, 10, 11; wrote README/documentation.
+- Yiqin Lin (Potoqin): Made the solutions and ran tests for LIC 9, 10, 11; wrote README/documentation.
 
-- Emma Lindblom: Made the solutions and ran tests for LIC 6, 7, 8; organized group and kept track of grading criteria.
+- Emma Lindblom (emmalindblm): Made the solutions and ran tests for LIC 6, 7, 8; organized group and kept track of grading criteria.
 
-- Andy Li: Made the solutions and ran tests for LIC 12, 13, 14; implemented CMV, **init**.py, and the top-level decide integration.
+- Andy Li (ydnall): Made the solutions and ran tests for LIC 12, 13, 14; implemented CMV, **init**.py, and the top-level decide integration.
 
-- Martin Zivojinovic: Made the solutions and ran tests for LIC 0, 1, 2; implemented PUM.
+- Martin Zivojinovic (ZivoMartin): Made the solutions and ran tests for LIC 0, 1, 2; implemented PUM.
 
 ## Way of working (Essence self-assessment)
 
