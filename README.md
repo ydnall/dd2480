@@ -9,6 +9,13 @@ The main mechanism of the LIC is the DECIDE()-function, which will output a laun
 
 - Python 3.10+
 
+### Hardware requirements
+
+The program is written in pure Python, without dependencies that require certain architectures or operating systems. Therefore, as long as Python can be run on a machine, it can run this program. Some valid examples are:
+
+- Operating systems: Linux, Windows, MacOS.
+- Architectures: x86/x64, ARM64.
+
 ## Run program
 
 There are two supported ways to run the code.
