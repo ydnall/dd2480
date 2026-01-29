@@ -31,12 +31,15 @@ def make_params(**overrides):
 
 
 def test_lic9_false_few_points():
+    """Returns False when there aren’t enough points to form a (i, j, k) triple."""
+    # needs at least 5 points when C_PTS=1 and D_PTS=1 because we use indices (0,2,4).
     points = [(0.0, 0.0)] * 4
     params = make_params(C_PTS=1, D_PTS=1, EPSILON=0.1)
     assert not lic_9(points, params)
 
 
 def test_lic9_true_angle_too_small():
+    """Returns True when the angle at the vertex is far from PI (e.g., ~90 degrees)."""
     # With C_PTS=1, D_PTS=1, indices are (0,2,4) so we need >= 5 points
     # Choose p0=(1,0), p2=(0,0) vertex, p4=(0,1) -> 90 degrees (pi/2), should be < pi-eps
     points = [(1, 0), (999, 999), (0, 0), (999, 999), (0, 1)]
@@ -45,6 +48,7 @@ def test_lic9_true_angle_too_small():
 
 
 def test_lic9_false_straight_line():
+    """Returns False when the points form a straight line (angle ~ PI)."""
     # p0=(-1,0), p2=(0,0) vertex, p4=(1,0) -> angle = pi, should be within [pi-eps, pi+eps]
     points = [(-1, 0), (999, 999), (0, 0), (999, 999), (1, 0)]
     params = make_params(C_PTS=1, D_PTS=1, EPSILON=0.1)
@@ -52,6 +56,7 @@ def test_lic9_false_straight_line():
 
 
 def test_lic9_false_when_point_coincides_with_vertex():
+    """Returns False when the angle is undefined (a point coincides with the vertex)."""
     # p0 == vertex, should be skipped and return False
     points = [(0, 0), (999, 999), (0, 0), (999, 999), (1, 0)]
     params = make_params(C_PTS=1, D_PTS=1, EPSILON=0.1)
