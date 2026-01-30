@@ -8,6 +8,7 @@ The main mechanism of the LIC is the DECIDE()-function, which will output a laun
 ## Requirements
 
 - Python 3.10+
+- Docker 20.10.0+ (Industry standard minimum recommendation)
 
 ## Run program
 
